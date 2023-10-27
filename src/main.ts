@@ -1,1 +1,1 @@
-import './scripts/05-物体的缩放'
+import './scripts/06-渲染的时间间隔'
