@@ -1,1 +1,1 @@
-import './scripts/06-Clock跟踪时间'
+import './scripts/07-gsap动画库'
