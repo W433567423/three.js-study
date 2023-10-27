@@ -6,7 +6,7 @@ const scene = new THREE.Scene()
 
 // 创建相机
 const camera = new THREE.PerspectiveCamera(
-    75,
+    60,
     window.innerWidth / window.innerHeight,
     0.1,
     1000) // 透视相机
@@ -34,17 +34,15 @@ const controls = new OrbitControls(camera, renderer.domElement)
 const axesHelper = new THREE.AxesHelper(5)
 scene.add(axesHelper)
 
-console.log(cube.rotation.x)
-// 修改物体的位置
-// cube.position.set(3, 0, 0)
-// cube.position.y = 2
-
-// 将物体进行旋转
-// cube.rotation.set(Math.PI / 4, 0, 0)
+// 设置时钟
+const clock = new THREE.Clock()
 
 // 渲染函数
-const render = (time?: number) => {
-    cube.position.x = time / 1000 % 4
+const render = () => {
+    console.log(`时钟总时长:${clock.getElapsedTime().toFixed(5)}}`)
+    console.log(`两帧动画间隔时间:${clock.getDelta().toFixed(5)}`)
+    console.log('--------------')
+    // cube.position.x = time / 1000 % 4
     renderer.render(scene, camera)
     // 请求下一帧渲染
     requestAnimationFrame(render)

@@ -1,1 +1,1 @@
-import './scripts/06-渲染的时间间隔'
+import './scripts/06-Clock跟踪时间'
