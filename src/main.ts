@@ -1,1 +1,1 @@
-import './scripts/04-3D物体的移动'
+import './scripts/05-物体的缩放'
