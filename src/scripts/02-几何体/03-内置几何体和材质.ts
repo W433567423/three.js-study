@@ -12,22 +12,33 @@ const camera = new THREE.PerspectiveCamera(
     1000) // 透视相机
 
 // 设置相机
-camera.position.set(0, 0, 10)
+camera.position.set(2, 2, 10)
 scene.add(camera)
 
+
+// 纹理
+const textureLoader = new THREE.TextureLoader()
+const colorTexture = textureLoader.load("./textures/壁纸1.jpg")
+colorTexture.offset.x = 0
+
 // 添加物体
-for (let i = 0; i < 50; i++) {
-    const geometry = new THREE.BufferGeometry()
-    const positionArr = new Float32Array(9)
-    for (let j = 0; j < 9; j++) {
-        positionArr[j] = Math.random() * 4
-    }
-    const color = new THREE.Color(Math.random(), Math.random(), Math.random())
-    geometry.setAttribute('position', new THREE.BufferAttribute(positionArr, 3))
-    const material = new THREE.MeshBasicMaterial({color, opacity: .8, transparent: true})
-    const mesh = new THREE.Mesh(geometry, material)
-    scene.add(mesh)
-}
+// 正方体 + 基础材质
+const geometry1 = new THREE.BoxGeometry(2, 2, 2);
+const material1 = new THREE.MeshBasicMaterial({
+    // color: "#00ff00",
+    map: colorTexture
+});
+const cube = new THREE.Mesh(geometry1, material1);
+scene.add(cube);
+
+// 圆
+const geometry2 = new THREE.CircleGeometry(1, 64);
+const material2 = new THREE.MeshBasicMaterial({
+    color: "skyblue"
+});
+const capsule = new THREE.Mesh(geometry2, material2);
+capsule.position.setX(3)
+scene.add(capsule);
 
 
 // 渲染
