@@ -1,1 +1,1 @@
-import './scripts/07-gsap动画库'
+import './scripts/01-环境和基础/08-根据尺寸自适应'
