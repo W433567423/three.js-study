@@ -19,11 +19,23 @@ scene.add(camera)
 // 纹理
 const textureLoader1 = new THREE.TextureLoader()
 const colorTexture1 = textureLoader1.load("./textures/壁纸1.jpg")
-colorTexture1.offset.x = 0
+// 偏移
+// colorTexture1.offset.x = 0
+// 重复
+colorTexture1.repeat.set(2, 3)
+colorTexture1.wrapT = THREE.RepeatWrapping
+colorTexture1.wrapS = THREE.RepeatWrapping
 
 const textureLoader2 = new THREE.TextureLoader()
 const colorTexture2 = textureLoader2.load("./textures/壁纸3.jpg")
-colorTexture2.offset.x = 0
+// 设置中心点
+colorTexture2.center.set(0.5, 0.5)
+// 旋转
+colorTexture2.rotation = Math.PI / 4
+
+
+const textureLoader3 = new THREE.TextureLoader()
+const colorTexture3 = textureLoader3.load("./textures/bg-1.jpg")
 
 // 添加物体
 // 正方体 + 基础材质
@@ -44,6 +56,13 @@ const material2 = new THREE.MeshBasicMaterial({
 const capsule = new THREE.Mesh(geometry2, material2);
 capsule.position.setX(3)
 scene.add(capsule);
+
+//
+const geometry3 = new THREE.TorusKnotGeometry(2, 0.3, 64, 8, 2, 3);
+const material3 = new THREE.MeshBasicMaterial({map: colorTexture3});
+const torusKnot = new THREE.Mesh(geometry3, material3);
+torusKnot.position.setX(8)
+scene.add(torusKnot);
 
 
 // 渲染
