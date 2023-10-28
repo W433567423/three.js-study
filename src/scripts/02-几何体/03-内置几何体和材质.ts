@@ -17,16 +17,20 @@ scene.add(camera)
 
 
 // 纹理
-const textureLoader = new THREE.TextureLoader()
-const colorTexture = textureLoader.load("./textures/壁纸1.jpg")
-colorTexture.offset.x = 0
+const textureLoader1 = new THREE.TextureLoader()
+const colorTexture1 = textureLoader1.load("./textures/壁纸1.jpg")
+colorTexture1.offset.x = 0
+
+const textureLoader2 = new THREE.TextureLoader()
+const colorTexture2 = textureLoader2.load("./textures/壁纸3.jpg")
+colorTexture2.offset.x = 0
 
 // 添加物体
 // 正方体 + 基础材质
 const geometry1 = new THREE.BoxGeometry(2, 2, 2);
 const material1 = new THREE.MeshBasicMaterial({
     // color: "#00ff00",
-    map: colorTexture
+    map: colorTexture1
 });
 const cube = new THREE.Mesh(geometry1, material1);
 scene.add(cube);
@@ -34,7 +38,8 @@ scene.add(cube);
 // 圆
 const geometry2 = new THREE.CircleGeometry(1, 64);
 const material2 = new THREE.MeshBasicMaterial({
-    color: "skyblue"
+    // color: "skyblue",
+    map: colorTexture2
 });
 const capsule = new THREE.Mesh(geometry2, material2);
 capsule.position.setX(3)
