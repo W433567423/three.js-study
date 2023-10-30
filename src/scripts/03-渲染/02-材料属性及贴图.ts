@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
     1000) // 透视相机
 
 // 设置相机
-camera.position.set(0, 0, 4)
+camera.position.set(-1, -1, 1)
 scene.add(camera)
 
 
@@ -49,16 +49,23 @@ const material = new THREE.MeshStandardMaterial({
 
     normalMap: doorNormalTexture // 法线
 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+// const cube = new THREE.Mesh(geometry, material);
+// scene.add(cube);
 
 // 灯光(环境光)
 const light = new THREE.AmbientLight('white', 0.5)
 scene.add(light)
 //  平行光
-const directionLight = new THREE.DirectionalLight('white', 0.8)
-directionLight.position.set(0, 0, 10)
+const directionLight = new THREE.DirectionalLight('white', 1)
+directionLight.position.set(10, 10, 10)
 scene.add(directionLight)
+
+// 添加平面
+const plane = new THREE.Mesh(
+    new THREE.PlaneGeometry(2, 2), material
+)
+// plane.position.setX(2)
+scene.add(plane)
 
 // 渲染
 const renderer = new THREE.WebGLRenderer()
