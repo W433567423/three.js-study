@@ -20,6 +20,7 @@ scene.add(camera)
 const textureLoader = new THREE.TextureLoader()
 const doorColorTexture = textureLoader.load("./textures/door/color.jpg")
 const doorAplhaTexture = textureLoader.load("./textures/door/alpha.jpg")
+const doorAoTexture = textureLoader.load("./textures/door/ambientOcclusion.jpg")
 // 纹理算法
 // texture.minFilter = THREE.NearestFilter
 // texture.magFilter = THREE.NearestFilter
@@ -28,9 +29,10 @@ doorColorTexture.magFilter = THREE.LinearFilter
 const geometry = new THREE.BoxGeometry(2, 2, 2);
 const baseMaterial = new THREE.MeshBasicMaterial({
     map: doorColorTexture,
-    alphaMap: doorAplhaTexture,
+    alphaMap: doorAplhaTexture, //透明遮挡
     transparent: true,
-    opacity: 0.8, side: THREE.DoubleSide
+    side: THREE.DoubleSide,
+    aoMap: doorAoTexture //环境遮挡
 });
 const cube = new THREE.Mesh(geometry, baseMaterial);
 scene.add(cube);
