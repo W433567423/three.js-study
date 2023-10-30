@@ -18,23 +18,29 @@ scene.add(camera)
 
 // 纹理的常用属性
 const textureLoader = new THREE.TextureLoader()
-const texture = textureLoader.load("./textures/bg-2.jpg")
+const doorColorTexture = textureLoader.load("./textures/door/color.jpg")
+const doorAplhaTexture = textureLoader.load("./textures/door/alpha.jpg")
 // 纹理算法
 // texture.minFilter = THREE.NearestFilter
 // texture.magFilter = THREE.NearestFilter
-texture.minFilter = THREE.LinearFilter
-texture.magFilter = THREE.LinearFilter
-// 重复
-texture.repeat.set(2, 3)
-texture.wrapT = THREE.RepeatWrapping
-texture.wrapS = THREE.RepeatWrapping
+doorColorTexture.minFilter = THREE.LinearFilter
+doorColorTexture.magFilter = THREE.LinearFilter
 const geometry = new THREE.BoxGeometry(2, 2, 2);
-const material = new THREE.MeshBasicMaterial({
-    map: texture
+const baseMaterial = new THREE.MeshBasicMaterial({
+    map: doorColorTexture,
+    alphaMap: doorAplhaTexture,
+    transparent: true,
+    opacity: 0.8, side: THREE.DoubleSide
 });
-const cube = new THREE.Mesh(geometry, material);
+const cube = new THREE.Mesh(geometry, baseMaterial);
 scene.add(cube);
 
+// 添加平面
+const plane = new THREE.Mesh(
+    new THREE.PlaneGeometry(2, 2), baseMaterial
+)
+plane.position.setX(3)
+scene.add(plane)
 
 // 渲染
 const renderer = new THREE.WebGLRenderer()
