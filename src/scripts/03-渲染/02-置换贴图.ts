@@ -22,6 +22,7 @@ const doorColorTexture = textureLoader.load("./textures/door/color.jpg")
 const doorAplhaTexture = textureLoader.load("./textures/door/alpha.jpg")
 const doorAoTexture = textureLoader.load("./textures/door/ambientOcclusion.jpg")
 const doorHeightTexture = textureLoader.load("./textures/door/height.jpg")
+const doorRoughnessTexture = textureLoader.load("./textures/door/roughness.jpg")
 const geometry = new THREE.BoxGeometry(2, 2, 2, 100, 100, 100);
 
 const material = new THREE.MeshStandardMaterial({
@@ -34,8 +35,10 @@ const material = new THREE.MeshStandardMaterial({
     aoMapIntensity: 1,
 
     displacementMap: doorHeightTexture, //置换贴图
-    side: THREE.DoubleSide,
-    displacementScale: 0.1
+    displacementScale: 0.3,
+    // side: THREE.DoubleSide,
+
+    roughnessMap: doorRoughnessTexture//    粗糙度
 });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
@@ -45,7 +48,7 @@ const light = new THREE.AmbientLight('white', 0.5)
 scene.add(light)
 //  平行光
 const directionLight = new THREE.DirectionalLight('white', 0.8)
-directionLight.position.set(10, 10, 10)
+directionLight.position.set(0, 1, 10)
 scene.add(directionLight)
 
 // 渲染
