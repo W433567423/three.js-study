@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
     1000) // 透视相机
 
 // 设置相机
-camera.position.set(0, 0, 10)
+camera.position.set(0, 0, 12.5)
 scene.add(camera)
 
 // 添加物体
@@ -24,7 +24,11 @@ for (let i = 0; i < 50; i++) {
     }
     const color = new THREE.Color(Math.random(), Math.random(), Math.random())
     geometry.setAttribute('position', new THREE.BufferAttribute(positionArr, 3))
-    const material = new THREE.MeshBasicMaterial({color, opacity: .8, transparent: true})
+    const material = new THREE.MeshBasicMaterial({
+        color,
+        opacity: .8,
+        transparent: true
+    })
     const mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
 }

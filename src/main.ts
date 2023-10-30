@@ -1,1 +1,1 @@
-import './scripts/02-几何体/04-透明纹理'
+import './scripts/02-几何体/02-创建酷炫三角体'
