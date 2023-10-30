@@ -21,13 +21,21 @@ const textureLoader = new THREE.TextureLoader()
 const doorColorTexture = textureLoader.load("./textures/door/color.jpg")
 const doorAplhaTexture = textureLoader.load("./textures/door/alpha.jpg")
 const doorAoTexture = textureLoader.load("./textures/door/ambientOcclusion.jpg")
-const geometry = new THREE.BoxGeometry(2, 2, 2);
+const doorHeightTexture = textureLoader.load("./textures/door/height.jpg")
+const geometry = new THREE.BoxGeometry(2, 2, 2, 100, 100, 100);
 
 const material = new THREE.MeshStandardMaterial({
+    color: "#ffff00",
     map: doorColorTexture,
     alphaMap: doorAplhaTexture, //透明遮挡
+
     transparent: true,
-    aoMap: doorAoTexture //环境遮挡
+    aoMap: doorAoTexture, //环境遮挡,
+    aoMapIntensity: 1,
+
+    displacementMap: doorHeightTexture, //置换贴图
+    side: THREE.DoubleSide,
+    displacementScale: 0.1
 });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
