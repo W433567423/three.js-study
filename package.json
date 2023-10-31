@@ -1,11 +1,10 @@
 {
   "name": "three.js-study",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "init": "rm -rf dist && mkdir dist && cp -r public/* dist/",
-    "start": "npm run init && parcel index.html",
+    "start": "rm -rf dist && parcel index.html",
     "build": "npm run init && npm run init && parcel build index.html"
   },
   "keywords": [],

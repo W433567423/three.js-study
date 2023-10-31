@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import {cosUrl} from "../../assets/constant";
 
 // 创建场景
 const scene = new THREE.Scene()
@@ -18,7 +19,7 @@ scene.add(camera)
 
 // 纹理
 const textureLoader1 = new THREE.TextureLoader()
-const colorTexture1 = textureLoader1.load("./textures/壁纸1.jpg")
+const colorTexture1 = textureLoader1.load(`${cosUrl}/textures/壁纸1.jpg`)
 // 偏移
 // colorTexture1.offset.x = 0
 // 重复
@@ -27,7 +28,7 @@ colorTexture1.wrapT = THREE.RepeatWrapping
 colorTexture1.wrapS = THREE.RepeatWrapping
 
 const textureLoader2 = new THREE.TextureLoader()
-const colorTexture2 = textureLoader2.load("./textures/壁纸3.jpg")
+const colorTexture2 = textureLoader2.load(`${cosUrl}/textures/壁纸3.jpg`)
 // 设置中心点
 colorTexture2.center.set(0.5, 0.5)
 // 旋转
@@ -35,7 +36,7 @@ colorTexture2.rotation = Math.PI / 4
 
 
 const textureLoader3 = new THREE.TextureLoader()
-const colorTexture3 = textureLoader3.load("./textures/bg-1.jpg")
+const colorTexture3 = textureLoader3.load(`${cosUrl}/textures/bg-1.jpg`)
 
 // 添加物体
 // 正方体 + 基础材质

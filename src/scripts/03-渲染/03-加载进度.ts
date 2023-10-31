@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
-
+import {cosUrl} from "../../assets/constant";
 // 创建场景
 const scene = new THREE.Scene()
 
@@ -14,13 +14,17 @@ const camera = new THREE.PerspectiveCamera(
 // 设置相机
 camera.position.set(-1, -1, 1)
 scene.add(camera)
-
-
+// console.log(1)
+// const messageControl = new MessageControl()
 // 设置加载管理
 const logF = {
-    onLoad: () => console.log('onLoad---'),
-    onProgress: (url: string, loaded: number, total: number) => console.log('onProgress---', url, loaded, total),
-    onError: (url: string) => console.log('onError---', url)
+    onLoad: () => console.log('加载完成------'),
+    onProgress: (url: string, loaded: number, total: number) => {
+        // console.log(messageControl)
+        // messageControl.message({content: 'ss'})
+        console.log('加载进度------', url, loaded, total)
+    },
+    onError: (url: string) => console.log('加载管理器出现错误------', url)
 }
 const loadingManage = new THREE.LoadingManager(
     logF.onLoad,
@@ -31,13 +35,13 @@ const loadingManage = new THREE.LoadingManager(
 // 纹理的常用属性
 const textureLoader = new THREE.TextureLoader(loadingManage)
 // 加载状态
-const doorColorTexture = textureLoader.load("./textures/door/color.jpg")
-const doorAplhaTexture = textureLoader.load("./textures/door/alpha.jpg")
-const doorAoTexture = textureLoader.load("./textures/door/ambientOcclusion.jpg")
-const doorHeightTexture = textureLoader.load("./textures/door/height.jpg")
-const doorRoughnessTexture = textureLoader.load("./textures/door/roughness.jpg")
-const doorMetalnessTexture = textureLoader.load("./textures/door/metalness.jpg")
-const doorNormalTexture = textureLoader.load("./textures/door/normal.jpg")
+const doorColorTexture = textureLoader.load(`${cosUrl}/textures/door/color.jpg`)
+const doorAplhaTexture = textureLoader.load(`${cosUrl}/textures/door/alpha.jpg`)
+const doorAoTexture = textureLoader.load(`${cosUrl}/textures/door/ambientOcclusion.jpg`)
+const doorHeightTexture = textureLoader.load(`${cosUrl}/textures/door/height.jpg`)
+const doorRoughnessTexture = textureLoader.load(`${cosUrl}/textures/door/roughness.jpg`)
+const doorMetalnessTexture = textureLoader.load(`${cosUrl}/textures/door/metalness.jpg`)
+const doorNormalTexture = textureLoader.load(`${cosUrl}/textures/door/normal.jpg`)
 
 
 // 添加物体
