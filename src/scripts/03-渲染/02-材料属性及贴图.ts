@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
-import {cosUrl} from "../../assets/constant";
 
 // 创建场景
 const scene = new THREE.Scene()
@@ -19,13 +18,13 @@ scene.add(camera)
 
 // 纹理的常用属性
 const textureLoader = new THREE.TextureLoader()
-const doorColorTexture = textureLoader.load(`${cosUrl}/textures/door/color.jpg`)
-const doorAplhaTexture = textureLoader.load(`${cosUrl}/textures/door/alpha.jpg`)
-const doorAoTexture = textureLoader.load(`${cosUrl}/textures/door/ambientOcclusion.jpg`)
-const doorHeightTexture = textureLoader.load(`${cosUrl}/textures/door/height.jpg`)
-const doorRoughnessTexture = textureLoader.load(`${cosUrl}/textures/door/roughness.jpg`)
-const doorMetalnessTexture = textureLoader.load(`${cosUrl}/textures/door/metalness.jpg`)
-const doorNormalTexture = textureLoader.load(`${cosUrl}/textures/door/normal.jpg`)
+const doorColorTexture = textureLoader.load(`./textures/door/color.jpg`)
+const doorAplhaTexture = textureLoader.load(`./textures/door/alpha.jpg`)
+const doorAoTexture = textureLoader.load(`./textures/door/ambientOcclusion.jpg`)
+const doorHeightTexture = textureLoader.load(`./textures/door/height.jpg`)
+const doorRoughnessTexture = textureLoader.load(`./textures/door/roughness.jpg`)
+const doorMetalnessTexture = textureLoader.load(`./textures/door/metalness.jpg`)
+const doorNormalTexture = textureLoader.load(`./textures/door/normal.jpg`)
 
 const geometry = new THREE.BoxGeometry(2, 2, 2, 100, 200, 200);
 

@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
-import {cosUrl} from "../../assets/constant";
 
 // 创建场景
 const scene = new THREE.Scene()
@@ -19,9 +18,9 @@ scene.add(camera)
 
 // 纹理的常用属性
 const textureLoader = new THREE.TextureLoader()
-const doorColorTexture = textureLoader.load(`${cosUrl}/textures/door/color.jpg`)
-const doorAplhaTexture = textureLoader.load(`${cosUrl}/textures/door/alpha.jpg`)
-const doorAoTexture = textureLoader.load(`${cosUrl}/textures/door/ambientOcclusion.jpg`)
+const doorColorTexture = textureLoader.load(`./textures/door/color.jpg`)
+const doorAplhaTexture = textureLoader.load(`./textures/door/alpha.jpg`)
+const doorAoTexture = textureLoader.load(`./textures/door/ambientOcclusion.jpg`)
 // 纹理算法
 // texture.minFilter = THREE.NearestFilter
 // texture.magFilter = THREE.NearestFilter
